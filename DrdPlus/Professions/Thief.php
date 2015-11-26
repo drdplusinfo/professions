@@ -5,7 +5,7 @@ use DrdPlus\Codes\ProfessionCodes;
 use DrdPlus\Properties\Base\Agility;
 use DrdPlus\Properties\Base\Knack;
 
-class Thief extends AbstractProfession
+class Thief extends Profession
 {
     const THIEF = ProfessionCodes::THIEF;
 

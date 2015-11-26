@@ -3,7 +3,7 @@ namespace DrdPlus\Professions;
 
 use Granam\Strict\Object\StrictObject;
 
-abstract class AbstractProfession extends StrictObject
+abstract class Profession extends StrictObject
 {
     /**
      * @param string $propertyCode

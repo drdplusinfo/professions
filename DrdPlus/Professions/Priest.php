@@ -5,7 +5,7 @@ use DrdPlus\Codes\ProfessionCodes;
 use DrdPlus\Properties\Base\Charisma;
 use DrdPlus\Properties\Base\Will;
 
-class Priest extends AbstractProfession
+class Priest extends Profession
 {
     const PRIEST = ProfessionCodes::PRIEST;
 

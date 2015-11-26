@@ -5,7 +5,7 @@ use DrdPlus\Codes\ProfessionCodes;
 use DrdPlus\Properties\Base\Intelligence;
 use DrdPlus\Properties\Base\Will;
 
-class Wizard extends AbstractProfession
+class Wizard extends Profession
 {
     const WIZARD = ProfessionCodes::WIZARD;
 

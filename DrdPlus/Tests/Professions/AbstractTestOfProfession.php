@@ -7,7 +7,7 @@ use DrdPlus\Properties\Base\Intelligence;
 use DrdPlus\Properties\Base\Knack;
 use DrdPlus\Properties\Base\Strength;
 use DrdPlus\Properties\Base\Will;
-use DrdPlus\Professions\AbstractProfession;
+use DrdPlus\Professions\Profession;
 
 
 abstract class AbstractTestOfProfession extends \PHPUnit_Framework_TestCase
@@ -16,12 +16,12 @@ abstract class AbstractTestOfProfession extends \PHPUnit_Framework_TestCase
      * @test
      * @dataProvider getPropertyAndRelation
      *
-     * @return AbstractProfession
+     * @return Profession
      */
     public function I_can_create_profession_and_get_its_code()
     {
         $professionClass = $this->getProfessionClass();
-        /** @var AbstractProfession $profession */
+        /** @var Profession $profession */
         $profession = new $professionClass();
         $this->assertInstanceOf($professionClass, $profession);
         $this->assertSame($this->getProfessionCode(), $profession->getCode());
@@ -40,7 +40,7 @@ abstract class AbstractTestOfProfession extends \PHPUnit_Framework_TestCase
     public function I_can_detect_primary_property($propertyCode, $shouldBePrimary)
     {
         $professionClass = $this->getProfessionClass();
-        /** @var AbstractProfession $profession */
+        /** @var Profession $profession */
         $profession = new $professionClass();
         $this->assertSame($shouldBePrimary, $profession->isPrimaryProperty($propertyCode));
     }

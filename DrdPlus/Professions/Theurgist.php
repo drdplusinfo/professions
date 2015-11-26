@@ -5,7 +5,7 @@ use DrdPlus\Codes\ProfessionCodes;
 use DrdPlus\Properties\Base\Charisma;
 use DrdPlus\Properties\Base\Intelligence;
 
-class Theurgist extends AbstractProfession
+class Theurgist extends Profession
 {
     const THEURGIST = ProfessionCodes::THEURGIST;
 

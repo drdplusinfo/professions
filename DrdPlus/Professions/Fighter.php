@@ -5,7 +5,7 @@ use DrdPlus\Codes\ProfessionCodes;
 use DrdPlus\Properties\Base\Agility;
 use \DrdPlus\Properties\Base\Strength;
 
-class Fighter extends AbstractProfession
+class Fighter extends Profession
 {
     const FIGHTER = ProfessionCodes::FIGHTER;
 
