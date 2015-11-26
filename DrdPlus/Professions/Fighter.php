@@ -1,12 +1,13 @@
 <?php
 namespace DrdPlus\Professions;
 
+use DrdPlus\Codes\ProfessionCodes;
 use DrdPlus\Properties\Base\Agility;
 use \DrdPlus\Properties\Base\Strength;
 
 class Fighter extends AbstractProfession
 {
-    const FIGHTER = 'fighter';
+    const FIGHTER = ProfessionCodes::FIGHTER;
 
     /**
      * @param string $propertyCode

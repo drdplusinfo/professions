@@ -1,12 +1,13 @@
 <?php
 namespace DrdPlus\Professions;
 
+use DrdPlus\Codes\ProfessionCodes;
 use DrdPlus\Properties\Base\Charisma;
 use DrdPlus\Properties\Base\Will;
 
 class Priest extends AbstractProfession
 {
-    const PRIEST = 'priest';
+    const PRIEST = ProfessionCodes::PRIEST;
 
     /**
      * @param string $propertyCode

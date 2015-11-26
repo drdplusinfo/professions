@@ -1,12 +1,13 @@
 <?php
 namespace DrdPlus\Professions;
 
+use DrdPlus\Codes\ProfessionCodes;
 use DrdPlus\Properties\Base\Knack;
 use DrdPlus\Properties\Base\Strength;
 
 class Ranger extends AbstractProfession
 {
-    const RANGER = 'ranger';
+    const RANGER = ProfessionCodes::RANGER;
 
     /**
      * @param string $propertyCode

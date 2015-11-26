@@ -1,12 +1,13 @@
 <?php
 namespace DrdPlus\Professions;
 
+use DrdPlus\Codes\ProfessionCodes;
 use DrdPlus\Properties\Base\Agility;
 use DrdPlus\Properties\Base\Knack;
 
 class Thief extends AbstractProfession
 {
-    const THIEF = 'thief';
+    const THIEF = ProfessionCodes::THIEF;
 
     /**
      * @param string $propertyCode
