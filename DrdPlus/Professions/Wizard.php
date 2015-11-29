@@ -17,13 +17,4 @@ class Wizard extends Profession
     {
         return in_array($propertyCode, [Will::WILL, Intelligence::INTELLIGENCE]);
     }
-
-    /**
-     * @return string
-     */
-    public function getCode()
-    {
-        return self::WIZARD;
-    }
-
 }

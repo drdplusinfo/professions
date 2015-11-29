@@ -17,13 +17,4 @@ class Ranger extends Profession
     {
         return in_array($propertyCode, [Strength::STRENGTH, Knack::KNACK]);
     }
-
-    /**
-     * @return string
-     */
-    public function getCode()
-    {
-        return self::RANGER;
-    }
-
 }

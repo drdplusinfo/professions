@@ -17,13 +17,4 @@ class Theurgist extends Profession
     {
         return in_array($propertyCode, [Intelligence::INTELLIGENCE, Charisma::CHARISMA]);
     }
-
-    /**
-     * @return string
-     */
-    public function getCode()
-    {
-        return self::THEURGIST;
-    }
-
 }

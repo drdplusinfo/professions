@@ -17,13 +17,4 @@ class Fighter extends Profession
     {
         return in_array($propertyCode, [Strength::STRENGTH, Agility::AGILITY]);
     }
-
-    /**
-     * @return string
-     */
-    public function getCode()
-    {
-        return self::FIGHTER;
-    }
-
 }

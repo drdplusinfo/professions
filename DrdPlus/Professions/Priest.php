@@ -17,13 +17,4 @@ class Priest extends Profession
     {
         return in_array($propertyCode, [Will::WILL, Charisma::CHARISMA]);
     }
-
-    /**
-     * @return string
-     */
-    public function getCode()
-    {
-        return self::PRIEST;
-    }
-
 }

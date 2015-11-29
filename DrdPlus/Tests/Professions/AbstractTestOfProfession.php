@@ -21,10 +21,11 @@ abstract class AbstractTestOfProfession extends \PHPUnit_Framework_TestCase
     public function I_can_create_profession_and_get_its_code()
     {
         $professionClass = $this->getProfessionClass();
-        /** @var Profession $profession */
-        $profession = new $professionClass();
+        /** @var Profession $professionClass */
+        $profession = $professionClass::getIt();
         $this->assertInstanceOf($professionClass, $profession);
         $this->assertSame($this->getProfessionCode(), $profession->getCode());
+        $this->assertSame($this->getProfessionCode(), constant($this->getProfessionCodeConstant()));
 
         return $profession;
     }
@@ -40,8 +41,8 @@ abstract class AbstractTestOfProfession extends \PHPUnit_Framework_TestCase
     public function I_can_detect_primary_property($propertyCode, $shouldBePrimary)
     {
         $professionClass = $this->getProfessionClass();
-        /** @var Profession $profession */
-        $profession = new $professionClass();
+        /** @var Profession $professionClass */
+        $profession = $professionClass::getIt();
         $this->assertSame($shouldBePrimary, $profession->isPrimaryProperty($propertyCode));
     }
 
@@ -61,6 +62,13 @@ abstract class AbstractTestOfProfession extends \PHPUnit_Framework_TestCase
     protected function getProfessionCode()
     {
         return strtolower($this->getProfessionClassBaseName());
+    }
+
+    protected function getProfessionCodeConstant()
+    {
+        $constantBaseName = strtoupper($this->getProfessionCode());
+
+        return $this->getProfessionClass() . '::' . $constantBaseName;
     }
 
     public function getPropertyAndRelation()

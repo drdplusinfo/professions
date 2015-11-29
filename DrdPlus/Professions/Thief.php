@@ -17,13 +17,4 @@ class Thief extends Profession
     {
         return in_array($propertyCode, [Agility::AGILITY, Knack::KNACK]);
     }
-
-    /**
-     * @return string
-     */
-    public function getCode()
-    {
-        return self::THIEF;
-    }
-
 }

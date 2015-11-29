@@ -1,10 +1,17 @@
 <?php
 namespace DrdPlus\Professions;
 
-use Granam\Strict\Object\StrictObject;
+use Doctrineum\Scalar\Enum;
 
-abstract class Profession extends StrictObject
+abstract class Profession extends Enum
 {
+    const PROFESSION = 'profession';
+
+    public static function getIt()
+    {
+        return new static(static::getCode());
+    }
+
     /**
      * @param string $propertyCode
      * @return bool
@@ -14,5 +21,12 @@ abstract class Profession extends StrictObject
     /**
      * @return string
      */
-    abstract public function getCode();
+    public static function getCode()
+    {
+        $classBaseName = preg_replace('~.+\\\(\w+)$~', '$1', static::class);
+        $underscored = preg_replace('~([a-z])([A-Z])~', '$1_$2', $classBaseName);
+        $constantLike = strtolower($underscored);
+
+        return $constantLike;
+    }
 }
