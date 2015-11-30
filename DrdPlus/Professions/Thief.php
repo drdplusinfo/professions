@@ -9,12 +9,8 @@ class Thief extends Profession
 {
     const THIEF = ProfessionCodes::THIEF;
 
-    /**
-     * @param string $propertyCode
-     * @return bool
-     */
-    public function isPrimaryProperty($propertyCode)
+    public function getPrimaryProperties()
     {
-        return in_array($propertyCode, [Agility::AGILITY, Knack::KNACK]);
+        return [Agility::AGILITY, Knack::KNACK];
     }
 }

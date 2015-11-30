@@ -9,12 +9,8 @@ class Theurgist extends Profession
 {
     const THEURGIST = ProfessionCodes::THEURGIST;
 
-    /**
-     * @param string $propertyCode
-     * @return bool
-     */
-    public function isPrimaryProperty($propertyCode)
+    public function getPrimaryProperties()
     {
-        return in_array($propertyCode, [Intelligence::INTELLIGENCE, Charisma::CHARISMA]);
+        return [Intelligence::INTELLIGENCE, Charisma::CHARISMA];
     }
 }

@@ -9,12 +9,8 @@ class Fighter extends Profession
 {
     const FIGHTER = ProfessionCodes::FIGHTER;
 
-    /**
-     * @param string $propertyCode
-     * @return bool
-     */
-    public function isPrimaryProperty($propertyCode)
+    public function getPrimaryProperties()
     {
-        return in_array($propertyCode, [Strength::STRENGTH, Agility::AGILITY]);
+        return [Strength::STRENGTH, Agility::AGILITY];
     }
 }

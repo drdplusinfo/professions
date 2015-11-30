@@ -9,12 +9,8 @@ class Wizard extends Profession
 {
     const WIZARD = ProfessionCodes::WIZARD;
 
-    /**
-     * @param string $propertyCode
-     * @return bool
-     */
-    public function isPrimaryProperty($propertyCode)
+    public function getPrimaryProperties()
     {
-        return in_array($propertyCode, [Will::WILL, Intelligence::INTELLIGENCE]);
+        return [Will::WILL, Intelligence::INTELLIGENCE];
     }
 }

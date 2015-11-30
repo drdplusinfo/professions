@@ -9,12 +9,8 @@ class Priest extends Profession
 {
     const PRIEST = ProfessionCodes::PRIEST;
 
-    /**
-     * @param string $propertyCode
-     * @return bool
-     */
-    public function isPrimaryProperty($propertyCode)
+    public function getPrimaryProperties()
     {
-        return in_array($propertyCode, [Will::WILL, Charisma::CHARISMA]);
+        return [Will::WILL, Charisma::CHARISMA];
     }
 }

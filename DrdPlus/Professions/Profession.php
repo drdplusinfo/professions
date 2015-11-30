@@ -13,12 +13,6 @@ abstract class Profession extends Enum
     }
 
     /**
-     * @param string $propertyCode
-     * @return bool
-     */
-    abstract public function isPrimaryProperty($propertyCode);
-
-    /**
      * @return string
      */
     public static function getCode()
@@ -29,4 +23,18 @@ abstract class Profession extends Enum
 
         return $constantLike;
     }
+
+    /**
+     * @param string $propertyCode
+     * @return bool
+     */
+    public function isPrimaryProperty($propertyCode)
+    {
+        return in_array($propertyCode, $this->getPrimaryProperties());
+    }
+
+    /**
+     * @return string[]
+     */
+    abstract public function getPrimaryProperties();
 }

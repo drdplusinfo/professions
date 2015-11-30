@@ -47,6 +47,17 @@ abstract class AbstractTestOfProfession extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @test
+     */
+    public function I_can_get_primary_properties()
+    {
+        $professionClass = $this->getProfessionClass();
+        /** @var Profession $professionClass */
+        $profession = $professionClass::getIt();
+        $this->assertEquals($this->getPrimaryProperties(), $profession->getPrimaryProperties());
+    }
+
+    /**
      * @return string
      */
     protected function getProfessionClass()

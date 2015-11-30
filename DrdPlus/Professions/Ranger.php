@@ -9,12 +9,9 @@ class Ranger extends Profession
 {
     const RANGER = ProfessionCodes::RANGER;
 
-    /**
-     * @param string $propertyCode
-     * @return bool
-     */
-    public function isPrimaryProperty($propertyCode)
+    public function getPrimaryProperties()
     {
-        return in_array($propertyCode, [Strength::STRENGTH, Knack::KNACK]);
+        return [Strength::STRENGTH, Knack::KNACK];
     }
+
 }
