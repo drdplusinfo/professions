@@ -9,13 +9,13 @@ abstract class Profession extends Enum
 
     public static function getIt()
     {
-        return new static(static::getCode());
+        return new static(static::getDeterminedCode());
     }
 
     /**
      * @return string
      */
-    public static function getCode()
+    protected static function getDeterminedCode()
     {
         $classBaseName = preg_replace('~.+\\\(\w+)$~', '$1', static::class);
         $underscored = preg_replace('~([a-z])([A-Z])~', '$1_$2', $classBaseName);
