@@ -1,7 +1,7 @@
 <?php
 namespace DrdPlus\Professions\EnumTypes;
 
-use Doctrineum\Scalar\EnumType;
+use Doctrineum\Scalar\ScalarEnumType;
 use DrdPlus\Professions\Fighter;
 use DrdPlus\Professions\Priest;
 use DrdPlus\Professions\Profession;
@@ -10,7 +10,7 @@ use DrdPlus\Professions\Theurgist;
 use DrdPlus\Professions\Thief;
 use DrdPlus\Professions\Wizard;
 
-class ProfessionType extends EnumType
+class ProfessionType extends ScalarEnumType
 {
     const PROFESSION = Profession::PROFESSION;
 

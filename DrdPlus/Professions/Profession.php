@@ -1,9 +1,9 @@
 <?php
 namespace DrdPlus\Professions;
 
-use Doctrineum\Scalar\Enum;
+use Doctrineum\Scalar\ScalarEnum;
 
-abstract class Profession extends Enum
+abstract class Profession extends ScalarEnum
 {
     const PROFESSION = 'profession';
 
