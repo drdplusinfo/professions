@@ -9,6 +9,14 @@ class Fighter extends Profession
 {
     const FIGHTER = ProfessionCodes::FIGHTER;
 
+    /**
+     * @return static|Fighter
+     */
+    public static function getIt()
+    {
+        return parent::getIt();
+    }
+
     public function getPrimaryProperties()
     {
         return [Strength::STRENGTH, Agility::AGILITY];

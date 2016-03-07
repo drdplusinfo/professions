@@ -4,7 +4,7 @@ namespace DrdPlus\Tests\Professions;
 use DrdPlus\Properties\Base\Knack;
 use DrdPlus\Properties\Base\Strength;
 
-class RangerTest extends AbstractTestOfProfession
+class RangerTest extends ProfessionTest
 {
     protected function getPrimaryProperties()
     {

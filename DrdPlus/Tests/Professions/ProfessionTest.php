@@ -1,6 +1,8 @@
 <?php
 namespace DrdPlus\Tests\Professions;
 
+use DrdPlus\Codes\ProfessionCodes;
+use DrdPlus\Professions\Fighter;
 use DrdPlus\Properties\Base\Agility;
 use DrdPlus\Properties\Base\Charisma;
 use DrdPlus\Properties\Base\Intelligence;
@@ -9,9 +11,30 @@ use DrdPlus\Properties\Base\Strength;
 use DrdPlus\Properties\Base\Will;
 use DrdPlus\Professions\Profession;
 
-
-abstract class AbstractTestOfProfession extends \PHPUnit_Framework_TestCase
+abstract class ProfessionTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @test
+     */
+    public function I_can_create_any_profession_fom_generic_by_code()
+    {
+        foreach (ProfessionCodes::getProfessionCodes() as $professionCode) {
+            $profession = Profession::getItByCode($professionCode);
+            $namespace = str_replace('Tests\\', '', __NAMESPACE__);
+            $classBaseName = ucfirst($professionCode);
+            $this->assertInstanceOf($namespace . '\\' . $classBaseName, $profession);
+        }
+    }
+
+    /**
+     * @test
+     * @expectedException \DrdPlus\Professions\Exceptions\ProfessionNotFoundByCode
+     */
+    public function I_can_not_create_profession_by_unknown_code()
+    {
+        Profession::getItByCode('unknown code');
+    }
+
     /**
      * @test
      * @dataProvider getPropertyAndRelation
@@ -21,7 +44,7 @@ abstract class AbstractTestOfProfession extends \PHPUnit_Framework_TestCase
     public function I_can_create_profession_and_get_its_code()
     {
         $professionClass = $this->getProfessionClass();
-        /** @var Profession $professionClass */
+        /** @var Profession|Fighter $professionClass */
         $profession = $professionClass::getIt();
         $this->assertInstanceOf($professionClass, $profession);
         $this->assertSame($this->getProfessionCode(), $profession->getValue());
@@ -41,7 +64,7 @@ abstract class AbstractTestOfProfession extends \PHPUnit_Framework_TestCase
     public function I_can_detect_primary_property($propertyCode, $shouldBePrimary)
     {
         $professionClass = $this->getProfessionClass();
-        /** @var Profession $professionClass */
+        /** @var Profession|Fighter $professionClass */
         $profession = $professionClass::getIt();
         $this->assertSame($shouldBePrimary, $profession->isPrimaryProperty($propertyCode));
     }
@@ -52,7 +75,7 @@ abstract class AbstractTestOfProfession extends \PHPUnit_Framework_TestCase
     public function I_can_get_primary_properties()
     {
         $professionClass = $this->getProfessionClass();
-        /** @var Profession $professionClass */
+        /** @var Profession|Fighter $professionClass */
         $profession = $professionClass::getIt();
         $this->assertEquals($this->getPrimaryProperties(), $profession->getPrimaryProperties());
     }

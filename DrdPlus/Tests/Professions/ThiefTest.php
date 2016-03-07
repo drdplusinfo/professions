@@ -4,7 +4,7 @@ namespace DrdPlus\Tests\Professions;
 use DrdPlus\Properties\Base\Agility;
 use DrdPlus\Properties\Base\Knack;
 
-class ThiefTest extends AbstractTestOfProfession
+class ThiefTest extends ProfessionTest
 {
     protected function getPrimaryProperties()
     {

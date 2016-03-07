@@ -2,12 +2,30 @@
 namespace DrdPlus\Professions;
 
 use Doctrineum\Scalar\ScalarEnum;
+use Granam\Tools\ValueDescriber;
 
 abstract class Profession extends ScalarEnum
 {
     const PROFESSION = 'profession';
 
-    public static function getIt()
+    public static function getItByCode($professionCode)
+    {
+        $baseClassName = implode(array_map('ucfirst', explode('_', $professionCode)));
+        /** @var Profession $className */
+        $className = __NAMESPACE__ . '\\' . $baseClassName;
+        if (!class_exists($className)) {
+            throw new Exceptions\ProfessionNotFoundByCode(
+                'No profession found by code ' . ValueDescriber::describe($professionCode)
+            );
+        }
+
+        return $className::getIt();
+    }
+
+    /**
+     * @return static|Profession
+     */
+    protected static function getIt()
     {
         return new static(static::getDeterminedCode());
     }

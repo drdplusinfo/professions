@@ -4,7 +4,7 @@ namespace DrdPlus\Tests\Professions;
 use DrdPlus\Properties\Base\Intelligence;
 use DrdPlus\Properties\Base\Will;
 
-class WizardTest extends AbstractTestOfProfession
+class WizardTest extends ProfessionTest
 {
     protected function getPrimaryProperties()
     {

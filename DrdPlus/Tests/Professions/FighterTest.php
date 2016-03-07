@@ -4,7 +4,7 @@ namespace DrdPlus\Tests\Professions;
 use DrdPlus\Properties\Base\Agility;
 use DrdPlus\Properties\Base\Strength;
 
-class FighterTest extends AbstractTestOfProfession
+class FighterTest extends ProfessionTest
 {
     protected function getPrimaryProperties()
     {

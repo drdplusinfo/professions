@@ -9,6 +9,14 @@ class Wizard extends Profession
 {
     const WIZARD = ProfessionCodes::WIZARD;
 
+    /**
+     * @return Wizard|static
+     */
+    public static function getIt()
+    {
+        return parent::getIt();
+    }
+
     public function getPrimaryProperties()
     {
         return [Will::WILL, Intelligence::INTELLIGENCE];

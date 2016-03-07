@@ -9,6 +9,14 @@ class Priest extends Profession
 {
     const PRIEST = ProfessionCodes::PRIEST;
 
+    /**
+     * @return Priest|static
+     */
+    public static function getIt()
+    {
+        return parent::getIt();
+    }
+
     public function getPrimaryProperties()
     {
         return [Will::WILL, Charisma::CHARISMA];
