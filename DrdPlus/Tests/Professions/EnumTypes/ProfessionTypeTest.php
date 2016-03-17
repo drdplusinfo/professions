@@ -16,14 +16,14 @@ class ProfessionTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function I_can_register_all_professions_at_once()
     {
-        ProfessionType::registerSelf();
-        ProfessionType::registerSelf(); // can be called more times without punishment
-        Type::hasType(ProfessionType::PROFESSION);
-        ProfessionType::hasSubTypeEnum(Fighter::class);
-        ProfessionType::hasSubTypeEnum(Wizard::class);
-        ProfessionType::hasSubTypeEnum(Priest::class);
-        ProfessionType::hasSubTypeEnum(Theurgist::class);
-        ProfessionType::hasSubTypeEnum(Thief::class);
-        ProfessionType::hasSubTypeEnum(Ranger::class);
+        self::assertTrue(ProfessionType::registerSelf());
+        self::assertFalse(ProfessionType::registerSelf()); // can be called more times without punishment
+        self::assertTrue(Type::hasType(ProfessionType::PROFESSION));
+        self::assertTrue(ProfessionType::hasSubTypeEnum(Fighter::class));
+        self::assertTrue(ProfessionType::hasSubTypeEnum(Wizard::class));
+        self::assertTrue(ProfessionType::hasSubTypeEnum(Priest::class));
+        self::assertTrue(ProfessionType::hasSubTypeEnum(Theurgist::class));
+        self::assertTrue(ProfessionType::hasSubTypeEnum(Thief::class));
+        self::assertTrue(ProfessionType::hasSubTypeEnum(Ranger::class));
     }
 }
