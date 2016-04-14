@@ -16,15 +16,15 @@ class ProfessionType extends ScalarEnumType
 
     public static function registerSelf()
     {
-        return parent::registerSelf() && static::registerProfessionsAsSubtypes();
+        return parent::registerSelf() || static::registerProfessionsAsSubtypes();
     }
 
     protected static function registerProfessionsAsSubtypes()
     {
-        $result = true;
+        $result = false;
         foreach (static::getProfessions() as $professionClass => $professionCode) {
             if (!static::hasSubTypeEnum($professionClass)) {
-                $result &= static::addSubTypeEnum($professionClass, '~^' . $professionCode . '$~');
+                $result |= static::addSubTypeEnum($professionClass, '~^' . $professionCode . '$~');
             }
         }
 
