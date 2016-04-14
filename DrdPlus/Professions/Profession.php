@@ -37,9 +37,8 @@ abstract class Profession extends ScalarEnum
     {
         $classBaseName = preg_replace('~.+\\\(\w+)$~', '$1', static::class);
         $underscored = preg_replace('~([a-z])([A-Z])~', '$1_$2', $classBaseName);
-        $constantLike = strtolower($underscored);
 
-        return $constantLike;
+        return strtolower($underscored);
     }
 
     /**
@@ -48,7 +47,7 @@ abstract class Profession extends ScalarEnum
      */
     public function isPrimaryProperty($propertyCode)
     {
-        return in_array($propertyCode, $this->getPrimaryProperties());
+        return in_array($propertyCode, $this->getPrimaryProperties(), true);
     }
 
     /**
