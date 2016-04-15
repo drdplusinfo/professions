@@ -1,7 +1,7 @@
 <?php
 namespace DrdPlus\Professions\EnumTypes;
 
-class ProfessionsEnumsRegistrar
+class ProfessionsEnumRegistrar
 {
     public static function registerAll()
     {

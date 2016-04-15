@@ -30,7 +30,7 @@ class ProfessionTypeTest extends \PHPUnit_Framework_TestCase
         self::assertFalse(ProfessionType::hasSubTypeEnum(Thief::class));
         self::assertFalse(ProfessionType::hasSubTypeEnum(Ranger::class));
 
-        ProfessionsEnumsRegistrar::registerAll();
+        ProfessionsEnumRegistrar::registerAll();
         self::assertTrue(ProfessionType::hasSubTypeEnum(Fighter::class));
         self::assertTrue(ProfessionType::hasSubTypeEnum(Wizard::class));
         self::assertTrue(ProfessionType::hasSubTypeEnum(Priest::class));

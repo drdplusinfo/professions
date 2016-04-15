@@ -2,7 +2,7 @@
 namespace DrdPlus\Tests\Professions;
 
 use Doctrineum\Tests\Entity\AbstractDoctrineEntitiesTest;
-use DrdPlus\Professions\EnumTypes\ProfessionsEnumsRegistrar;
+use DrdPlus\Professions\EnumTypes\ProfessionsEnumRegistrar;
 use DrdPlus\Professions\EnumTypes\ProfessionType;
 use DrdPlus\Professions\Fighter;
 use DrdPlus\Professions\Priest;
@@ -16,7 +16,7 @@ class DoctrineEnumsTest extends AbstractDoctrineEntitiesTest
 {
     protected function setUp()
     {
-        ProfessionsEnumsRegistrar::registerAll();
+        ProfessionsEnumRegistrar::registerAll();
         parent::setUp();
     }
 
