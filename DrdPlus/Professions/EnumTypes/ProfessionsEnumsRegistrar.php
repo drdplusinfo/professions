@@ -5,6 +5,7 @@ class ProfessionsEnumsRegistrar
 {
     public static function registerAll()
     {
-        ProfessionType::registerAll();
+        ProfessionType::registerSelf();
+        ProfessionType::registerProfessionsAsSubtypes();
     }
 }

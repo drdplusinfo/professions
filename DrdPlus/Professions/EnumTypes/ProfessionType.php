@@ -14,15 +14,7 @@ class ProfessionType extends ScalarEnumType
 {
     const PROFESSION = Profession::PROFESSION;
 
-    public static function registerAll()
-    {
-        $result = parent::registerSelf();
-        $result |= static::registerProfessionsAsSubtypes();
-
-        return (bool)$result;
-    }
-
-    protected static function registerProfessionsAsSubtypes()
+    public static function registerProfessionsAsSubtypes()
     {
         $result = false;
         foreach (static::getProfessions() as $professionClass => $professionCode) {
