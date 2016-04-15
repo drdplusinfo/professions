@@ -14,9 +14,12 @@ class ProfessionType extends ScalarEnumType
 {
     const PROFESSION = Profession::PROFESSION;
 
-    public static function registerSelf()
+    public static function registerAll()
     {
-        return parent::registerSelf() || static::registerProfessionsAsSubtypes();
+        $result = parent::registerSelf();
+        $result |= static::registerProfessionsAsSubtypes();
+
+        return (bool)$result;
     }
 
     protected static function registerProfessionsAsSubtypes()
@@ -28,7 +31,7 @@ class ProfessionType extends ScalarEnumType
             }
         }
 
-        return $result;
+        return (bool)$result;
     }
 
     protected static function getProfessions()
