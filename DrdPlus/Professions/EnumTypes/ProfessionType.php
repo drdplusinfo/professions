@@ -37,4 +37,12 @@ class ProfessionType extends ScalarEnumType
             Ranger::class => Ranger::RANGER,
         ];
     }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return self::PROFESSION;
+    }
 }

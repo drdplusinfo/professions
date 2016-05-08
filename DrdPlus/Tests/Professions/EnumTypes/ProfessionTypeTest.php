@@ -1,7 +1,10 @@
 <?php
-namespace DrdPlus\Professions\EnumTypes;
+namespace DrdPlus\Tests\Professions\EnumTypes;
 
 use Doctrine\DBAL\Types\Type;
+use Doctrineum\Tests\SelfRegisteringType\AbstractSelfRegisteringTypeTest;
+use DrdPlus\Professions\EnumTypes\ProfessionsEnumRegistrar;
+use DrdPlus\Professions\EnumTypes\ProfessionType;
 use DrdPlus\Professions\Fighter;
 use DrdPlus\Professions\Priest;
 use DrdPlus\Professions\Ranger;
@@ -9,7 +12,7 @@ use DrdPlus\Professions\Theurgist;
 use DrdPlus\Professions\Thief;
 use DrdPlus\Professions\Wizard;
 
-class ProfessionTypeTest extends \PHPUnit_Framework_TestCase
+class ProfessionTypeTest extends AbstractSelfRegisteringTypeTest
 {
 
     /**
@@ -17,11 +20,10 @@ class ProfessionTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function I_got_registered_subtypes_even_if_profession_is_already_registered()
     {
-        if (!Type::hasType(ProfessionType::getTypeName())) {
-            Type::addType(ProfessionType::getTypeName(), ProfessionType::class);
+        if (!Type::hasType($this->getExpectedTypeName())) {
+            Type::addType($this->getExpectedTypeName(), $this->getTypeClass());
         }
-        self::assertTrue(Type::hasType(ProfessionType::getTypeName()));
-        self::assertSame(ProfessionType::PROFESSION, ProfessionType::getTypeName());
+        self::assertTrue(Type::hasType($this->getExpectedTypeName()));
 
         self::assertFalse(ProfessionType::hasSubTypeEnum(Fighter::class));
         self::assertFalse(ProfessionType::hasSubTypeEnum(Wizard::class));
