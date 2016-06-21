@@ -1,13 +1,13 @@
 <?php
 namespace DrdPlus\Professions;
 
-use DrdPlus\Codes\ProfessionCodes;
+use DrdPlus\Codes\ProfessionCode;
 use DrdPlus\Properties\Base\Charisma;
 use DrdPlus\Properties\Base\Intelligence;
 
 class Theurgist extends Profession
 {
-    const THEURGIST = ProfessionCodes::THEURGIST;
+    const THEURGIST = ProfessionCode::THEURGIST;
 
     /**
      * @return Theurgist|static

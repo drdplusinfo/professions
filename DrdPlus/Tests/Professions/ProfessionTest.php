@@ -1,7 +1,7 @@
 <?php
 namespace DrdPlus\Tests\Professions;
 
-use DrdPlus\Codes\ProfessionCodes;
+use DrdPlus\Codes\ProfessionCode;
 use DrdPlus\Professions\Fighter;
 use DrdPlus\Properties\Base\Agility;
 use DrdPlus\Properties\Base\Charisma;
@@ -18,11 +18,11 @@ abstract class ProfessionTest extends \PHPUnit_Framework_TestCase
      */
     public function I_can_create_any_profession_fom_generic_by_code()
     {
-        foreach (ProfessionCodes::getProfessionCodes() as $professionCode) {
+        foreach (ProfessionCode::getProfessionCodes() as $professionCode) {
             $profession = Profession::getItByCode($professionCode);
             $namespace = str_replace('Tests\\', '', __NAMESPACE__);
             $classBaseName = ucfirst($professionCode);
-            $this->assertInstanceOf($namespace . '\\' . $classBaseName, $profession);
+            self::assertInstanceOf($namespace . '\\' . $classBaseName, $profession);
         }
     }
 
@@ -46,9 +46,9 @@ abstract class ProfessionTest extends \PHPUnit_Framework_TestCase
         $professionClass = $this->getProfessionClass();
         /** @var Profession|Fighter $professionClass */
         $profession = $professionClass::getIt();
-        $this->assertInstanceOf($professionClass, $profession);
-        $this->assertSame($this->getProfessionCode(), $profession->getValue());
-        $this->assertSame($this->getProfessionCode(), constant($this->getProfessionCodeConstant()));
+        self::assertInstanceOf($professionClass, $profession);
+        self::assertSame($this->getProfessionCode(), $profession->getValue());
+        self::assertSame($this->getProfessionCode(), constant($this->getProfessionCodeConstant()));
 
         return $profession;
     }
@@ -66,7 +66,7 @@ abstract class ProfessionTest extends \PHPUnit_Framework_TestCase
         $professionClass = $this->getProfessionClass();
         /** @var Profession|Fighter $professionClass */
         $profession = $professionClass::getIt();
-        $this->assertSame($shouldBePrimary, $profession->isPrimaryProperty($propertyCode));
+        self::assertSame($shouldBePrimary, $profession->isPrimaryProperty($propertyCode));
     }
 
     /**
@@ -77,7 +77,7 @@ abstract class ProfessionTest extends \PHPUnit_Framework_TestCase
         $professionClass = $this->getProfessionClass();
         /** @var Profession|Fighter $professionClass */
         $profession = $professionClass::getIt();
-        $this->assertEquals($this->getPrimaryProperties(), $profession->getPrimaryProperties());
+        self::assertEquals($this->getPrimaryProperties(), $profession->getPrimaryProperties());
     }
 
     /**
@@ -109,12 +109,12 @@ abstract class ProfessionTest extends \PHPUnit_Framework_TestCase
     {
         return array_merge_recursive(
             [
-                [Strength::STRENGTH, in_array(Strength::STRENGTH, $this->getPrimaryProperties())],
-                [Agility::AGILITY, in_array(Agility::AGILITY, $this->getPrimaryProperties())],
-                [Knack::KNACK, in_array(Knack::KNACK, $this->getPrimaryProperties())],
-                [Will::WILL, in_array(Will::WILL, $this->getPrimaryProperties())],
-                [Intelligence::INTELLIGENCE, in_array(Intelligence::INTELLIGENCE, $this->getPrimaryProperties())],
-                [Charisma::CHARISMA, in_array(Charisma::CHARISMA, $this->getPrimaryProperties())],
+                [Strength::STRENGTH, in_array(Strength::STRENGTH, $this->getPrimaryProperties(), true)],
+                [Agility::AGILITY, in_array(Agility::AGILITY, $this->getPrimaryProperties(), true)],
+                [Knack::KNACK, in_array(Knack::KNACK, $this->getPrimaryProperties(), true)],
+                [Will::WILL, in_array(Will::WILL, $this->getPrimaryProperties(), true)],
+                [Intelligence::INTELLIGENCE, in_array(Intelligence::INTELLIGENCE, $this->getPrimaryProperties(), true)],
+                [Charisma::CHARISMA, in_array(Charisma::CHARISMA, $this->getPrimaryProperties(), true)],
                 ['non-existing-property', false]
             ]
         );

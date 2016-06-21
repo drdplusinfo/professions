@@ -1,13 +1,13 @@
 <?php
 namespace DrdPlus\Professions;
 
-use DrdPlus\Codes\ProfessionCodes;
+use DrdPlus\Codes\ProfessionCode;
 use DrdPlus\Properties\Base\Charisma;
 use DrdPlus\Properties\Base\Will;
 
 class Priest extends Profession
 {
-    const PRIEST = ProfessionCodes::PRIEST;
+    const PRIEST = ProfessionCode::PRIEST;
 
     /**
      * @return Priest|static
