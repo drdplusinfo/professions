@@ -10,8 +10,9 @@ use DrdPlus\Properties\Base\Knack;
 use DrdPlus\Properties\Base\Strength;
 use DrdPlus\Properties\Base\Will;
 use DrdPlus\Professions\Profession;
+use Granam\Tests\Tools\TestWithMockery;
 
-abstract class ProfessionTest extends \PHPUnit_Framework_TestCase
+abstract class ProfessionTest extends TestWithMockery
 {
     /**
      * @test
@@ -19,7 +20,7 @@ abstract class ProfessionTest extends \PHPUnit_Framework_TestCase
     public function I_can_create_any_profession_fom_generic_by_code()
     {
         foreach (ProfessionCode::getProfessionCodes() as $professionCode) {
-            $profession = Profession::getItByCode($professionCode);
+            $profession = Profession::getItByCode(ProfessionCode::getIt($professionCode));
             $namespace = str_replace('Tests\\', '', __NAMESPACE__);
             $classBaseName = ucfirst($professionCode);
             self::assertInstanceOf($namespace . '\\' . $classBaseName, $profession);
@@ -28,11 +29,14 @@ abstract class ProfessionTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @expectedException \DrdPlus\Professions\Exceptions\ProfessionNotFoundByCode
+     * @expectedException \DrdPlus\Professions\Exceptions\ProfessionNotFound
      */
     public function I_can_not_create_profession_by_unknown_code()
     {
-        Profession::getItByCode('unknown code');
+        $professionCode = $this->mockery(ProfessionCode::class);
+        $professionCode->shouldReceive('getValue')
+            ->andReturn('muralist');
+        Profession::getItByCode($professionCode);
     }
 
     /**
@@ -115,7 +119,7 @@ abstract class ProfessionTest extends \PHPUnit_Framework_TestCase
                 [Will::WILL, in_array(Will::WILL, $this->getPrimaryProperties(), true)],
                 [Intelligence::INTELLIGENCE, in_array(Intelligence::INTELLIGENCE, $this->getPrimaryProperties(), true)],
                 [Charisma::CHARISMA, in_array(Charisma::CHARISMA, $this->getPrimaryProperties(), true)],
-                ['non-existing-property', false]
+                ['non-existing-property', false],
             ]
         );
     }
