@@ -6,7 +6,7 @@ use DrdPlus\Properties\Base\Strength;
 
 class RangerTest extends ProfessionTest
 {
-    protected function getPrimaryProperties()
+    protected function getExpectedPrimaryProperties()
     {
         return [Strength::STRENGTH, Knack::KNACK];
     }

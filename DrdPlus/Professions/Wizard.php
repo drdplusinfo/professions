@@ -10,7 +10,7 @@ class Wizard extends Profession
     const WIZARD = ProfessionCode::WIZARD;
 
     /**
-     * @return Wizard|static
+     * @return Wizard|Profession
      */
     public static function getIt()
     {

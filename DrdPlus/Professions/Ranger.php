@@ -10,7 +10,7 @@ class Ranger extends Profession
     const RANGER = ProfessionCode::RANGER;
 
     /**
-     * @return Ranger|static
+     * @return Ranger|Profession
      */
     public static function getIt()
     {

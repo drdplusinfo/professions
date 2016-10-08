@@ -10,7 +10,7 @@ class Thief extends Profession
     const THIEF = ProfessionCode::THIEF;
 
     /**
-     * @return Thief|static
+     * @return Thief|Profession
      */
     public static function getIt()
     {

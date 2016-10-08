@@ -6,7 +6,7 @@ use DrdPlus\Properties\Base\Will;
 
 class PriestTest extends ProfessionTest
 {
-    protected function getPrimaryProperties()
+    protected function getExpectedPrimaryProperties()
     {
         return [Will::WILL, Charisma::CHARISMA];
     }

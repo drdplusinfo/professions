@@ -10,7 +10,7 @@ class Fighter extends Profession
     const FIGHTER = ProfessionCode::FIGHTER;
 
     /**
-     * @return static|Fighter
+     * @return Fighter|Profession
      */
     public static function getIt()
     {

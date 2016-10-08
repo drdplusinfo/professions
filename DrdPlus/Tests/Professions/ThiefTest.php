@@ -6,7 +6,7 @@ use DrdPlus\Properties\Base\Knack;
 
 class ThiefTest extends ProfessionTest
 {
-    protected function getPrimaryProperties()
+    protected function getExpectedPrimaryProperties()
     {
         return [Agility::AGILITY, Knack::KNACK];
     }

@@ -6,7 +6,7 @@ use DrdPlus\Properties\Base\Intelligence;
 
 class TheurgistTest extends ProfessionTest
 {
-    protected function getPrimaryProperties()
+    protected function getExpectedPrimaryProperties()
     {
         return [Intelligence::INTELLIGENCE, Charisma::CHARISMA];
     }

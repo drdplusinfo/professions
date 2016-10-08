@@ -10,7 +10,7 @@ class Priest extends Profession
     const PRIEST = ProfessionCode::PRIEST;
 
     /**
-     * @return Priest|static
+     * @return Priest|Profession
      */
     public static function getIt()
     {

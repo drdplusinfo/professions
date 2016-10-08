@@ -10,7 +10,7 @@ class Theurgist extends Profession
     const THEURGIST = ProfessionCode::THEURGIST;
 
     /**
-     * @return Theurgist|static
+     * @return Theurgist|Profession
      */
     public static function getIt()
     {

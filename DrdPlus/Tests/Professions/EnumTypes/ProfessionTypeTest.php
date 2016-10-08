@@ -3,6 +3,7 @@ namespace DrdPlus\Tests\Professions\EnumTypes;
 
 use Doctrine\DBAL\Types\Type;
 use Doctrineum\Tests\SelfRegisteringType\AbstractSelfRegisteringTypeTest;
+use DrdPlus\Professions\Commoner;
 use DrdPlus\Professions\EnumTypes\ProfessionsEnumRegistrar;
 use DrdPlus\Professions\EnumTypes\ProfessionType;
 use DrdPlus\Professions\Fighter;
@@ -25,14 +26,8 @@ class ProfessionTypeTest extends AbstractSelfRegisteringTypeTest
         }
         self::assertTrue(Type::hasType($this->getExpectedTypeName()));
 
-        self::assertFalse(ProfessionType::hasSubTypeEnum(Fighter::class));
-        self::assertFalse(ProfessionType::hasSubTypeEnum(Wizard::class));
-        self::assertFalse(ProfessionType::hasSubTypeEnum(Priest::class));
-        self::assertFalse(ProfessionType::hasSubTypeEnum(Theurgist::class));
-        self::assertFalse(ProfessionType::hasSubTypeEnum(Thief::class));
-        self::assertFalse(ProfessionType::hasSubTypeEnum(Ranger::class));
-
         ProfessionsEnumRegistrar::registerAll();
+        self::assertTrue(ProfessionType::hasSubTypeEnum(Commoner::class));
         self::assertTrue(ProfessionType::hasSubTypeEnum(Fighter::class));
         self::assertTrue(ProfessionType::hasSubTypeEnum(Wizard::class));
         self::assertTrue(ProfessionType::hasSubTypeEnum(Priest::class));

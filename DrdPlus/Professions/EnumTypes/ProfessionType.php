@@ -2,6 +2,7 @@
 namespace DrdPlus\Professions\EnumTypes;
 
 use Doctrineum\Scalar\ScalarEnumType;
+use DrdPlus\Professions\Commoner;
 use DrdPlus\Professions\Fighter;
 use DrdPlus\Professions\Priest;
 use DrdPlus\Professions\Profession;
@@ -29,6 +30,7 @@ class ProfessionType extends ScalarEnumType
     protected static function getProfessions()
     {
         return [
+            Commoner::class => Commoner::COMMONER,
             Fighter::class => Fighter::FIGHTER,
             Wizard::class => Wizard::WIZARD,
             Priest::class => Priest::PRIEST,

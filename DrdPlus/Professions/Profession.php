@@ -33,6 +33,7 @@ abstract class Profession extends ScalarEnum
      */
     protected static function getIt()
     {
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         return new static(static::getDeterminedCode());
     }
 

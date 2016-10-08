@@ -81,7 +81,7 @@ abstract class ProfessionTest extends TestWithMockery
         $professionClass = $this->getProfessionClass();
         /** @var Profession|Fighter $professionClass */
         $profession = $professionClass::getIt();
-        self::assertEquals($this->getPrimaryProperties(), $profession->getPrimaryProperties());
+        self::assertEquals($this->getExpectedPrimaryProperties(), $profession->getPrimaryProperties());
     }
 
     /**
@@ -113,17 +113,17 @@ abstract class ProfessionTest extends TestWithMockery
     {
         return array_merge_recursive(
             [
-                [Strength::STRENGTH, in_array(Strength::STRENGTH, $this->getPrimaryProperties(), true)],
-                [Agility::AGILITY, in_array(Agility::AGILITY, $this->getPrimaryProperties(), true)],
-                [Knack::KNACK, in_array(Knack::KNACK, $this->getPrimaryProperties(), true)],
-                [Will::WILL, in_array(Will::WILL, $this->getPrimaryProperties(), true)],
-                [Intelligence::INTELLIGENCE, in_array(Intelligence::INTELLIGENCE, $this->getPrimaryProperties(), true)],
-                [Charisma::CHARISMA, in_array(Charisma::CHARISMA, $this->getPrimaryProperties(), true)],
+                [Strength::STRENGTH, in_array(Strength::STRENGTH, $this->getExpectedPrimaryProperties(), true)],
+                [Agility::AGILITY, in_array(Agility::AGILITY, $this->getExpectedPrimaryProperties(), true)],
+                [Knack::KNACK, in_array(Knack::KNACK, $this->getExpectedPrimaryProperties(), true)],
+                [Will::WILL, in_array(Will::WILL, $this->getExpectedPrimaryProperties(), true)],
+                [Intelligence::INTELLIGENCE, in_array(Intelligence::INTELLIGENCE, $this->getExpectedPrimaryProperties(), true)],
+                [Charisma::CHARISMA, in_array(Charisma::CHARISMA, $this->getExpectedPrimaryProperties(), true)],
                 ['non-existing-property', false],
             ]
         );
     }
 
     /** @return array */
-    abstract protected function getPrimaryProperties();
+    abstract protected function getExpectedPrimaryProperties();
 }
