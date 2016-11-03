@@ -126,4 +126,17 @@ abstract class ProfessionTest extends TestWithMockery
 
     /** @return array */
     abstract protected function getExpectedPrimaryProperties();
+
+    /**
+     * @test
+     */
+    public function I_can_get_profession_code()
+    {
+        $professionClass = $this->getProfessionClass();
+        /** @var Profession|Fighter $professionClass */
+        $profession = $professionClass::getIt();
+        $professionCodeObject = $profession->getCode();
+        self::assertInstanceOf(ProfessionCode::class, $professionCodeObject);
+        self::assertSame($this->getProfessionCode(), $professionCodeObject->getValue());
+    }
 }

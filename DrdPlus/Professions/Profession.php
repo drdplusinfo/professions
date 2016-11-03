@@ -61,4 +61,12 @@ abstract class Profession extends ScalarEnum
      * @return string[]
      */
     abstract public function getPrimaryProperties();
+
+    /**
+     * @return ProfessionCode
+     */
+    public function getCode()
+    {
+        return ProfessionCode::getIt($this->getValue());
+    }
 }
