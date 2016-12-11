@@ -19,7 +19,7 @@ abstract class ProfessionTest extends TestWithMockery
      */
     public function I_can_create_any_profession_fom_generic_by_code()
     {
-        foreach (ProfessionCode::getProfessionCodes() as $professionCode) {
+        foreach (ProfessionCode::getPossibleValues() as $professionCode) {
             $profession = Profession::getItByCode(ProfessionCode::getIt($professionCode));
             $namespace = str_replace('Tests\\', '', __NAMESPACE__);
             $classBaseName = ucfirst($professionCode);
@@ -33,6 +33,7 @@ abstract class ProfessionTest extends TestWithMockery
      */
     public function I_can_not_create_profession_by_unknown_code()
     {
+        /** @var ProfessionCode|\Mockery\MockInterface $professionCode */
         $professionCode = $this->mockery(ProfessionCode::class);
         $professionCode->shouldReceive('getValue')
             ->andReturn('muralist');
