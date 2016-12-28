@@ -1,4 +1,4 @@
-# Professions for DrD+
+# Professions for [DrD+](http://www.altar.cz/drdplus/)
 
 Are you a fighter? Or wizard? What are your primary properties then?
 
