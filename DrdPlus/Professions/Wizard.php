@@ -17,6 +17,9 @@ class Wizard extends Profession
         return parent::getIt();
     }
 
+    /**
+     * @return array|string[]
+     */
     public function getPrimaryProperties()
     {
         return [Will::WILL, Intelligence::INTELLIGENCE];

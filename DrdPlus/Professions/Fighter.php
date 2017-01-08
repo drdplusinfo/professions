@@ -17,6 +17,9 @@ class Fighter extends Profession
         return parent::getIt();
     }
 
+    /**
+     * @return array|string[]
+     */
     public function getPrimaryProperties()
     {
         return [Strength::STRENGTH, Agility::AGILITY];

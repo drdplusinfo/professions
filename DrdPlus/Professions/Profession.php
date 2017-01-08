@@ -58,7 +58,7 @@ abstract class Profession extends ScalarEnum
     }
 
     /**
-     * @return string[]
+     * @return array|string[]
      */
     abstract public function getPrimaryProperties();
 

@@ -17,8 +17,11 @@ class Priest extends Profession
         return parent::getIt();
     }
 
+    /**
+     * @return array|string[]
+     */
     public function getPrimaryProperties()
     {
-        return [Will::WILL, Charisma::CHARISMA];
+        return [Charisma::CHARISMA, Will::WILL];
     }
 }

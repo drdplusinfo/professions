@@ -17,6 +17,9 @@ class Theurgist extends Profession
         return parent::getIt();
     }
 
+    /**
+     * @return array|string[]
+     */
     public function getPrimaryProperties()
     {
         return [Intelligence::INTELLIGENCE, Charisma::CHARISMA];

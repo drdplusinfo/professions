@@ -17,6 +17,9 @@ class Thief extends Profession
         return parent::getIt();
     }
 
+    /**
+     * @return array|string[]
+     */
     public function getPrimaryProperties()
     {
         return [Agility::AGILITY, Knack::KNACK];

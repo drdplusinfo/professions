@@ -2,6 +2,7 @@
 namespace DrdPlus\Tests\Professions;
 
 use DrdPlus\Codes\ProfessionCode;
+use DrdPlus\Codes\PropertyCode;
 use DrdPlus\Professions\Fighter;
 use DrdPlus\Properties\Base\Agility;
 use DrdPlus\Properties\Base\Charisma;
@@ -10,6 +11,7 @@ use DrdPlus\Properties\Base\Knack;
 use DrdPlus\Properties\Base\Strength;
 use DrdPlus\Properties\Base\Will;
 use DrdPlus\Professions\Profession;
+use DrdPlus\Tables\Professions\ProfessionPrimaryPropertiesTable;
 use Granam\Tests\Tools\TestWithMockery;
 
 abstract class ProfessionTest extends TestWithMockery
@@ -17,13 +19,15 @@ abstract class ProfessionTest extends TestWithMockery
     /**
      * @test
      */
-    public function I_can_create_any_profession_fom_generic_by_code()
+    public function I_can_create_every_profession_by_code()
     {
         foreach (ProfessionCode::getPossibleValues() as $professionCode) {
             $profession = Profession::getItByCode(ProfessionCode::getIt($professionCode));
             $namespace = str_replace('Tests\\', '', __NAMESPACE__);
             $classBaseName = ucfirst($professionCode);
-            self::assertInstanceOf($namespace . '\\' . $classBaseName, $profession);
+            $professionClass = $namespace . '\\' . $classBaseName;
+            self::assertTrue(class_exists($professionClass));
+            self::assertInstanceOf($professionClass, $profession);
         }
     }
 
@@ -43,12 +47,11 @@ abstract class ProfessionTest extends TestWithMockery
     /**
      * @test
      * @dataProvider getPropertyAndRelation
-     *
      * @return Profession
      */
     public function I_can_create_profession_and_get_its_code()
     {
-        $professionClass = $this->getProfessionClass();
+        $professionClass = self::getSutClass();
         /** @var Profession|Fighter $professionClass */
         $profession = $professionClass::getIt();
         self::assertInstanceOf($professionClass, $profession);
@@ -62,16 +65,15 @@ abstract class ProfessionTest extends TestWithMockery
      * @test
      * @dataProvider getPropertyAndRelation
      * @depends      I_can_create_profession_and_get_its_code
-     *
      * @param string $propertyCode
      * @param string $shouldBePrimary
      */
     public function I_can_detect_primary_property($propertyCode, $shouldBePrimary)
     {
-        $professionClass = $this->getProfessionClass();
+        $professionClass = self::getSutClass();
         /** @var Profession|Fighter $professionClass */
         $profession = $professionClass::getIt();
-        self::assertSame($shouldBePrimary, $profession->isPrimaryProperty($propertyCode));
+        self::assertSame($shouldBePrimary, $profession->isPrimaryProperty($propertyCode), $profession->getValue());
     }
 
     /**
@@ -79,23 +81,15 @@ abstract class ProfessionTest extends TestWithMockery
      */
     public function I_can_get_primary_properties()
     {
-        $professionClass = $this->getProfessionClass();
+        $professionClass = self::getSutClass();
         /** @var Profession|Fighter $professionClass */
         $profession = $professionClass::getIt();
-        self::assertEquals($this->getExpectedPrimaryProperties(), $profession->getPrimaryProperties());
-    }
-
-    /**
-     * @return string
-     */
-    protected function getProfessionClass()
-    {
-        return preg_replace('~[\\\]Tests(.+)Test$~', '$1', static::class);
+        self::assertEquals($this->getExpectedPrimaryProperties(), $profession->getPrimaryProperties(), $profession->getValue());
     }
 
     protected function getProfessionClassBaseName()
     {
-        return preg_replace('~.*[\\\](\w+)$~', '$1', $this->getProfessionClass());
+        return preg_replace('~.*[\\\](\w+)$~', '$1', self::getSutClass());
     }
 
     protected function getProfessionCode()
@@ -107,7 +101,7 @@ abstract class ProfessionTest extends TestWithMockery
     {
         $constantBaseName = strtoupper($this->getProfessionCode());
 
-        return $this->getProfessionClass() . '::' . $constantBaseName;
+        return self::getSutClass() . '::' . $constantBaseName;
     }
 
     public function getPropertyAndRelation()
@@ -126,14 +120,24 @@ abstract class ProfessionTest extends TestWithMockery
     }
 
     /** @return array */
-    abstract protected function getExpectedPrimaryProperties();
+    private function getExpectedPrimaryProperties()
+    {
+        $professionPrimaryPropertiesTable = new ProfessionPrimaryPropertiesTable();
+
+        return array_map(
+            function (PropertyCode $propertyCode) {
+                return $propertyCode->getValue();
+            },
+            $professionPrimaryPropertiesTable->getPrimaryPropertiesOf(ProfessionCode::getIt($this->getProfessionCode()))
+        );
+    }
 
     /**
      * @test
      */
     public function I_can_get_profession_code()
     {
-        $professionClass = $this->getProfessionClass();
+        $professionClass = self::getSutClass();
         /** @var Profession|Fighter $professionClass */
         $profession = $professionClass::getIt();
         $professionCodeObject = $profession->getCode();

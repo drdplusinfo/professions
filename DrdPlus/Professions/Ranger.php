@@ -17,9 +17,12 @@ class Ranger extends Profession
         return parent::getIt();
     }
 
+    /**
+     * @return array|string[]
+     */
     public function getPrimaryProperties()
     {
-        return [Strength::STRENGTH, Knack::KNACK];
+        return [Knack::KNACK, Strength::STRENGTH];
     }
 
 }
