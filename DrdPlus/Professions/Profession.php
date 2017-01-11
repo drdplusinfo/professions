@@ -3,6 +3,7 @@ namespace DrdPlus\Professions;
 
 use Doctrineum\Scalar\ScalarEnum;
 use DrdPlus\Codes\ProfessionCode;
+use DrdPlus\Codes\PropertyCode;
 use Granam\Tools\ValueDescriber;
 
 abstract class Profession extends ScalarEnum
@@ -49,12 +50,12 @@ abstract class Profession extends ScalarEnum
     }
 
     /**
-     * @param string $propertyCode
+     * @param PropertyCode $propertyCode
      * @return bool
      */
-    public function isPrimaryProperty($propertyCode)
+    public function isPrimaryProperty(PropertyCode $propertyCode)
     {
-        return in_array($propertyCode, $this->getPrimaryProperties(), true);
+        return in_array($propertyCode->getValue(), $this->getPrimaryProperties(), true);
     }
 
     /**

@@ -73,7 +73,11 @@ abstract class ProfessionTest extends TestWithMockery
         $professionClass = self::getSutClass();
         /** @var Profession|Fighter $professionClass */
         $profession = $professionClass::getIt();
-        self::assertSame($shouldBePrimary, $profession->isPrimaryProperty($propertyCode), $profession->getValue());
+        self::assertSame(
+            $shouldBePrimary,
+            $profession->isPrimaryProperty(PropertyCode::getIt($propertyCode)),
+            $profession->getValue()
+        );
     }
 
     /**
@@ -114,7 +118,7 @@ abstract class ProfessionTest extends TestWithMockery
                 [Will::WILL, in_array(Will::WILL, $this->getExpectedPrimaryProperties(), true)],
                 [Intelligence::INTELLIGENCE, in_array(Intelligence::INTELLIGENCE, $this->getExpectedPrimaryProperties(), true)],
                 [Charisma::CHARISMA, in_array(Charisma::CHARISMA, $this->getExpectedPrimaryProperties(), true)],
-                ['non-existing-property', false],
+                [PropertyCode::AGE, false],
             ]
         );
     }
