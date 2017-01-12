@@ -6,10 +6,11 @@ use DrdPlus\Codes\ProfessionCode;
 use DrdPlus\Codes\PropertyCode;
 use Granam\Tools\ValueDescriber;
 
+/**
+ * @method string getValue
+ */
 abstract class Profession extends ScalarEnum
 {
-    const PROFESSION = 'profession';
-
     /**
      * @param ProfessionCode $professionCode
      * @return Profession

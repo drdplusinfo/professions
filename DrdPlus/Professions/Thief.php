@@ -1,14 +1,10 @@
 <?php
 namespace DrdPlus\Professions;
 
-use DrdPlus\Codes\ProfessionCode;
-use DrdPlus\Properties\Base\Agility;
-use DrdPlus\Properties\Base\Knack;
+use DrdPlus\Codes\PropertyCode;
 
 class Thief extends Profession
 {
-    const THIEF = ProfessionCode::THIEF;
-
     /**
      * @return Thief|Profession
      */
@@ -22,6 +18,6 @@ class Thief extends Profession
      */
     public function getPrimaryProperties()
     {
-        return [Agility::AGILITY, Knack::KNACK];
+        return [PropertyCode::AGILITY, PropertyCode::KNACK];
     }
 }

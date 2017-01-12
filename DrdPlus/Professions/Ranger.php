@@ -1,14 +1,10 @@
 <?php
 namespace DrdPlus\Professions;
 
-use DrdPlus\Codes\ProfessionCode;
-use DrdPlus\Properties\Base\Knack;
-use DrdPlus\Properties\Base\Strength;
+use DrdPlus\Codes\PropertyCode;
 
 class Ranger extends Profession
 {
-    const RANGER = ProfessionCode::RANGER;
-
     /**
      * @return Ranger|Profession
      */
@@ -22,7 +18,6 @@ class Ranger extends Profession
      */
     public function getPrimaryProperties()
     {
-        return [Knack::KNACK, Strength::STRENGTH];
+        return [PropertyCode::KNACK, PropertyCode::STRENGTH];
     }
-
 }

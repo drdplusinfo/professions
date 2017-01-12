@@ -1,14 +1,10 @@
 <?php
 namespace DrdPlus\Professions;
 
-use DrdPlus\Codes\ProfessionCode;
-use DrdPlus\Properties\Base\Agility;
-use \DrdPlus\Properties\Base\Strength;
+use DrdPlus\Codes\PropertyCode;
 
 class Fighter extends Profession
 {
-    const FIGHTER = ProfessionCode::FIGHTER;
-
     /**
      * @return Fighter|Profession
      */
@@ -22,6 +18,6 @@ class Fighter extends Profession
      */
     public function getPrimaryProperties()
     {
-        return [Strength::STRENGTH, Agility::AGILITY];
+        return [PropertyCode::STRENGTH, PropertyCode::AGILITY];
     }
 }

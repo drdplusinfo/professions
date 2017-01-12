@@ -1,14 +1,10 @@
 <?php
 namespace DrdPlus\Professions;
 
-use DrdPlus\Codes\ProfessionCode;
-use DrdPlus\Properties\Base\Charisma;
-use DrdPlus\Properties\Base\Intelligence;
+use DrdPlus\Codes\PropertyCode;
 
 class Theurgist extends Profession
 {
-    const THEURGIST = ProfessionCode::THEURGIST;
-
     /**
      * @return Theurgist|Profession
      */
@@ -22,6 +18,6 @@ class Theurgist extends Profession
      */
     public function getPrimaryProperties()
     {
-        return [Intelligence::INTELLIGENCE, Charisma::CHARISMA];
+        return [PropertyCode::INTELLIGENCE, PropertyCode::CHARISMA];
     }
 }

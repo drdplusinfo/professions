@@ -2,10 +2,10 @@
 namespace DrdPlus\Professions\EnumTypes;
 
 use Doctrineum\Scalar\ScalarEnumType;
+use DrdPlus\Codes\ProfessionCode;
 use DrdPlus\Professions\Commoner;
 use DrdPlus\Professions\Fighter;
 use DrdPlus\Professions\Priest;
-use DrdPlus\Professions\Profession;
 use DrdPlus\Professions\Ranger;
 use DrdPlus\Professions\Theurgist;
 use DrdPlus\Professions\Thief;
@@ -13,7 +13,7 @@ use DrdPlus\Professions\Wizard;
 
 class ProfessionType extends ScalarEnumType
 {
-    const PROFESSION = Profession::PROFESSION;
+    const PROFESSION = 'profession';
 
     public static function registerProfessionsAsSubtypes()
     {
@@ -30,13 +30,13 @@ class ProfessionType extends ScalarEnumType
     protected static function getProfessions()
     {
         return [
-            Commoner::class => Commoner::COMMONER,
-            Fighter::class => Fighter::FIGHTER,
-            Wizard::class => Wizard::WIZARD,
-            Priest::class => Priest::PRIEST,
-            Theurgist::class => Theurgist::THEURGIST,
-            Thief::class => Thief::THIEF,
-            Ranger::class => Ranger::RANGER,
+            Commoner::class => ProfessionCode::COMMONER,
+            Fighter::class => ProfessionCode::FIGHTER,
+            Wizard::class => ProfessionCode::WIZARD,
+            Priest::class => ProfessionCode::PRIEST,
+            Theurgist::class => ProfessionCode::THEURGIST,
+            Thief::class => ProfessionCode::THIEF,
+            Ranger::class => ProfessionCode::RANGER,
         ];
     }
 

@@ -3,8 +3,6 @@ namespace DrdPlus\Professions;
 
 class Commoner extends Profession
 {
-    const COMMONER = 'commoner';
-
     /**
      * @return Commoner|Profession
      */
@@ -20,5 +18,4 @@ class Commoner extends Profession
     {
         return [];
     }
-
 }

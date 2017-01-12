@@ -4,12 +4,6 @@ namespace DrdPlus\Tests\Professions;
 use DrdPlus\Codes\ProfessionCode;
 use DrdPlus\Codes\PropertyCode;
 use DrdPlus\Professions\Fighter;
-use DrdPlus\Properties\Base\Agility;
-use DrdPlus\Properties\Base\Charisma;
-use DrdPlus\Properties\Base\Intelligence;
-use DrdPlus\Properties\Base\Knack;
-use DrdPlus\Properties\Base\Strength;
-use DrdPlus\Properties\Base\Will;
 use DrdPlus\Professions\Profession;
 use DrdPlus\Tables\Professions\ProfessionPrimaryPropertiesTable;
 use Granam\Tests\Tools\TestWithMockery;
@@ -55,8 +49,7 @@ abstract class ProfessionTest extends TestWithMockery
         /** @var Profession|Fighter $professionClass */
         $profession = $professionClass::getIt();
         self::assertInstanceOf($professionClass, $profession);
-        self::assertSame($this->getProfessionCode(), $profession->getValue());
-        self::assertSame($this->getProfessionCode(), constant($this->getProfessionCodeConstant()));
+        self::assertSame($this->getProfessionName(), $profession->getValue());
 
         return $profession;
     }
@@ -96,28 +89,21 @@ abstract class ProfessionTest extends TestWithMockery
         return preg_replace('~.*[\\\](\w+)$~', '$1', self::getSutClass());
     }
 
-    protected function getProfessionCode()
+    protected function getProfessionName()
     {
         return strtolower($this->getProfessionClassBaseName());
-    }
-
-    protected function getProfessionCodeConstant()
-    {
-        $constantBaseName = strtoupper($this->getProfessionCode());
-
-        return self::getSutClass() . '::' . $constantBaseName;
     }
 
     public function getPropertyAndRelation()
     {
         return array_merge_recursive(
             [
-                [Strength::STRENGTH, in_array(Strength::STRENGTH, $this->getExpectedPrimaryProperties(), true)],
-                [Agility::AGILITY, in_array(Agility::AGILITY, $this->getExpectedPrimaryProperties(), true)],
-                [Knack::KNACK, in_array(Knack::KNACK, $this->getExpectedPrimaryProperties(), true)],
-                [Will::WILL, in_array(Will::WILL, $this->getExpectedPrimaryProperties(), true)],
-                [Intelligence::INTELLIGENCE, in_array(Intelligence::INTELLIGENCE, $this->getExpectedPrimaryProperties(), true)],
-                [Charisma::CHARISMA, in_array(Charisma::CHARISMA, $this->getExpectedPrimaryProperties(), true)],
+                [PropertyCode::STRENGTH, in_array(PropertyCode::STRENGTH, $this->getExpectedPrimaryProperties(), true)],
+                [PropertyCode::AGILITY, in_array(PropertyCode::AGILITY, $this->getExpectedPrimaryProperties(), true)],
+                [PropertyCode::KNACK, in_array(PropertyCode::KNACK, $this->getExpectedPrimaryProperties(), true)],
+                [PropertyCode::WILL, in_array(PropertyCode::WILL, $this->getExpectedPrimaryProperties(), true)],
+                [PropertyCode::INTELLIGENCE, in_array(PropertyCode::INTELLIGENCE, $this->getExpectedPrimaryProperties(), true)],
+                [PropertyCode::CHARISMA, in_array(PropertyCode::CHARISMA, $this->getExpectedPrimaryProperties(), true)],
                 [PropertyCode::AGE, false],
             ]
         );
@@ -132,7 +118,7 @@ abstract class ProfessionTest extends TestWithMockery
             function (PropertyCode $propertyCode) {
                 return $propertyCode->getValue();
             },
-            $professionPrimaryPropertiesTable->getPrimaryPropertiesOf(ProfessionCode::getIt($this->getProfessionCode()))
+            $professionPrimaryPropertiesTable->getPrimaryPropertiesOf(ProfessionCode::getIt($this->getProfessionName()))
         );
     }
 
@@ -144,8 +130,8 @@ abstract class ProfessionTest extends TestWithMockery
         $professionClass = self::getSutClass();
         /** @var Profession|Fighter $professionClass */
         $profession = $professionClass::getIt();
-        $professionCodeObject = $profession->getCode();
-        self::assertInstanceOf(ProfessionCode::class, $professionCodeObject);
-        self::assertSame($this->getProfessionCode(), $professionCodeObject->getValue());
+        $professionCode = $profession->getCode();
+        self::assertInstanceOf(ProfessionCode::class, $professionCode);
+        self::assertSame($this->getProfessionName(), $professionCode->getValue());
     }
 }

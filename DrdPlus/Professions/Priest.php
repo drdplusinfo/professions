@@ -1,14 +1,10 @@
 <?php
 namespace DrdPlus\Professions;
 
-use DrdPlus\Codes\ProfessionCode;
-use DrdPlus\Properties\Base\Charisma;
-use DrdPlus\Properties\Base\Will;
+use DrdPlus\Codes\PropertyCode;
 
 class Priest extends Profession
 {
-    const PRIEST = ProfessionCode::PRIEST;
-
     /**
      * @return Priest|Profession
      */
@@ -22,6 +18,6 @@ class Priest extends Profession
      */
     public function getPrimaryProperties()
     {
-        return [Charisma::CHARISMA, Will::WILL];
+        return [PropertyCode::CHARISMA, PropertyCode::WILL];
     }
 }
