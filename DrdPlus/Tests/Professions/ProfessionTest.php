@@ -2,7 +2,7 @@
 namespace DrdPlus\Tests\Professions;
 
 use DrdPlus\Codes\ProfessionCode;
-use DrdPlus\Codes\PropertyCode;
+use DrdPlus\Codes\Properties\PropertyCode;
 use DrdPlus\Professions\Fighter;
 use DrdPlus\Professions\Profession;
 use DrdPlus\Tables\Professions\ProfessionPrimaryPropertiesTable;

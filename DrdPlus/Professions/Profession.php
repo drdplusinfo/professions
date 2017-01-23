@@ -3,7 +3,7 @@ namespace DrdPlus\Professions;
 
 use Doctrineum\Scalar\ScalarEnum;
 use DrdPlus\Codes\ProfessionCode;
-use DrdPlus\Codes\PropertyCode;
+use DrdPlus\Codes\Properties\PropertyCode;
 use Granam\Tools\ValueDescriber;
 
 /**

@@ -1,7 +1,7 @@
 <?php
 namespace DrdPlus\Professions;
 
-use DrdPlus\Codes\PropertyCode;
+use DrdPlus\Codes\Properties\PropertyCode;
 
 class Fighter extends Profession
 {
