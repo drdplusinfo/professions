@@ -15,7 +15,7 @@
     "doctrine/orm": "2.*"
   },
   "require-dev": {
-    "phpunit/phpunit": ">=4.4",
+    "phpunit/phpunit": "~5.0",
     "doctrineum/entity": "dev-master",
     "mockery/mockery": "~0.9"
   },
