@@ -9,16 +9,16 @@
     }
   },
   "require": {
-    "php": ">=5.5.0",
+    "php": ">=7.0",
     "drd-plus/codes": "dev-master",
     "drd-plus/properties": "dev-master",
     "doctrine/orm": "2.*"
   },
   "require-dev": {
-    "phpunit/phpunit": "~5.0",
+    "phpunit/phpunit": "~6.0",
     "doctrineum/entity": "dev-master",
     "mockery/mockery": "~0.9",
-    "granam/exceptions-hierarchy": "~3.0"
+    "granam/exceptions-hierarchy": "~4.0"
   },
   "minimum-stability": "dev",
   "prefer-stable": true
