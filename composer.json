@@ -9,7 +9,7 @@
     }
   },
   "require": {
-    "php": ">=7.0",
+    "php": ">=7.1",
     "drd-plus/codes": "dev-master",
     "drd-plus/properties": "dev-master",
     "doctrine/orm": "2.*"
