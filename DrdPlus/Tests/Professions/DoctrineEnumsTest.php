@@ -33,7 +33,7 @@ class DoctrineEnumsTest extends AbstractDoctrineEntitiesTest
         return [__DIR__ . '/Entities'];
     }
 
-    protected function createEntitiesToPersist()
+    protected function createEntitiesToPersist(): array
     {
         return [
             new SomeEntityWithProfessions(Fighter::getIt(), null, null, null, null, null, Fighter::getIt()),
