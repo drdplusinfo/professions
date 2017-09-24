@@ -6,7 +6,7 @@ class Commoner extends Profession
     /**
      * @return Commoner|Profession
      */
-    public static function getIt()
+    public static function getIt(): Commoner
     {
         return parent::getIt();
     }
@@ -14,7 +14,7 @@ class Commoner extends Profession
     /**
      * @return array
      */
-    public function getPrimaryProperties()
+    public function getPrimaryProperties(): array
     {
         return [];
     }

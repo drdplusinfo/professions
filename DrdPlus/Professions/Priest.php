@@ -8,7 +8,7 @@ class Priest extends Profession
     /**
      * @return Priest|Profession
      */
-    public static function getIt()
+    public static function getIt(): Priest
     {
         return parent::getIt();
     }
@@ -16,7 +16,7 @@ class Priest extends Profession
     /**
      * @return array|string[]
      */
-    public function getPrimaryProperties()
+    public function getPrimaryProperties(): array
     {
         return [PropertyCode::CHARISMA, PropertyCode::WILL];
     }

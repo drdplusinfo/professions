@@ -43,7 +43,7 @@ abstract class ProfessionTest extends TestWithMockery
      * @dataProvider getPropertyAndRelation
      * @return Profession
      */
-    public function I_can_create_profession_and_get_its_code()
+    public function I_can_create_profession_and_get_its_code(): Profession
     {
         $professionClass = self::getSutClass();
         /** @var Profession|Fighter $professionClass */
@@ -109,8 +109,7 @@ abstract class ProfessionTest extends TestWithMockery
         );
     }
 
-    /** @return array */
-    private function getExpectedPrimaryProperties()
+    private function getExpectedPrimaryProperties(): array
     {
         $professionPrimaryPropertiesTable = new ProfessionPrimaryPropertiesTable();
 

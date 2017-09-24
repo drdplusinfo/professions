@@ -15,19 +15,19 @@ class ProfessionType extends ScalarEnumType
 {
     const PROFESSION = 'profession';
 
-    public static function registerProfessionsAsSubtypes()
+    public static function registerProfessionsAsSubtypes(): bool
     {
         $result = false;
         foreach (static::getProfessions() as $professionClass => $professionCode) {
             if (!static::hasSubTypeEnum($professionClass)) {
-                $result |= static::addSubTypeEnum($professionClass, '~^' . $professionCode . '$~');
+                $result = static::addSubTypeEnum($professionClass, '~^' . $professionCode . '$~') || $result;
             }
         }
 
-        return (bool)$result;
+        return $result;
     }
 
-    protected static function getProfessions()
+    protected static function getProfessions(): array
     {
         return [
             Commoner::class => ProfessionCode::COMMONER,

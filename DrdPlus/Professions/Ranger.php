@@ -8,7 +8,7 @@ class Ranger extends Profession
     /**
      * @return Ranger|Profession
      */
-    public static function getIt()
+    public static function getIt(): Ranger
     {
         return parent::getIt();
     }
@@ -16,7 +16,7 @@ class Ranger extends Profession
     /**
      * @return array|string[]
      */
-    public function getPrimaryProperties()
+    public function getPrimaryProperties(): array
     {
         return [PropertyCode::KNACK, PropertyCode::STRENGTH];
     }

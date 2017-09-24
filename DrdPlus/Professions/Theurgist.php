@@ -8,7 +8,7 @@ class Theurgist extends Profession
     /**
      * @return Theurgist|Profession
      */
-    public static function getIt()
+    public static function getIt(): Theurgist
     {
         return parent::getIt();
     }
@@ -16,7 +16,7 @@ class Theurgist extends Profession
     /**
      * @return array|string[]
      */
-    public function getPrimaryProperties()
+    public function getPrimaryProperties(): array
     {
         return [PropertyCode::INTELLIGENCE, PropertyCode::CHARISMA];
     }

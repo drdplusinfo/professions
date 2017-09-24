@@ -85,7 +85,7 @@ class SomeEntityWithProfessions implements Entity
         $this->someProfession = $someProfession;
     }
 
-    public function getId()
+    public function getId():? int
     {
         return $this->id;
     }
@@ -93,7 +93,7 @@ class SomeEntityWithProfessions implements Entity
     /**
      * @return Fighter|null
      */
-    public function getFighter()
+    public function getFighter():? Fighter
     {
         return $this->fighter;
     }
@@ -101,7 +101,7 @@ class SomeEntityWithProfessions implements Entity
     /**
      * @return Thief|null
      */
-    public function getThief()
+    public function getThief():? Thief
     {
         return $this->thief;
     }
@@ -109,7 +109,7 @@ class SomeEntityWithProfessions implements Entity
     /**
      * @return Wizard|null
      */
-    public function getWizard()
+    public function getWizard():? Wizard
     {
         return $this->wizard;
     }
@@ -117,7 +117,7 @@ class SomeEntityWithProfessions implements Entity
     /**
      * @return Priest|null
      */
-    public function getPriest()
+    public function getPriest():? Priest
     {
         return $this->priest;
     }
@@ -125,7 +125,7 @@ class SomeEntityWithProfessions implements Entity
     /**
      * @return Theurgist|null
      */
-    public function getTheurgist()
+    public function getTheurgist():? Theurgist
     {
         return $this->theurgist;
     }
@@ -133,7 +133,7 @@ class SomeEntityWithProfessions implements Entity
     /**
      * @return Ranger|null
      */
-    public function getRanger()
+    public function getRanger():? Ranger
     {
         return $this->ranger;
     }
@@ -141,7 +141,7 @@ class SomeEntityWithProfessions implements Entity
     /**
      * @return Profession|null
      */
-    public function getSomeProfession()
+    public function getSomeProfession():? Profession
     {
         return $this->someProfession;
     }

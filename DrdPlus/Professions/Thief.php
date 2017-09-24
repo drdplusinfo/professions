@@ -8,7 +8,7 @@ class Thief extends Profession
     /**
      * @return Thief|Profession
      */
-    public static function getIt()
+    public static function getIt(): Thief
     {
         return parent::getIt();
     }
@@ -16,7 +16,7 @@ class Thief extends Profession
     /**
      * @return array|string[]
      */
-    public function getPrimaryProperties()
+    public function getPrimaryProperties(): array
     {
         return [PropertyCode::AGILITY, PropertyCode::KNACK];
     }

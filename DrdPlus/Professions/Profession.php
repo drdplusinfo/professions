@@ -16,7 +16,7 @@ abstract class Profession extends ScalarEnum
      * @return Profession
      * @throws Exceptions\ProfessionNotFound
      */
-    public static function getItByCode(ProfessionCode $professionCode)
+    public static function getItByCode(ProfessionCode $professionCode): Profession
     {
         $baseClassName = implode(array_map('ucfirst', explode('_', $professionCode->getValue())));
         /** @var Profession $className */
@@ -42,7 +42,7 @@ abstract class Profession extends ScalarEnum
     /**
      * @return string
      */
-    protected static function getDeterminedCode()
+    protected static function getDeterminedCode(): string
     {
         $classBaseName = preg_replace('~.+\\\(\w+)$~', '$1', static::class);
         $underscored = preg_replace('~([a-z])([A-Z])~', '$1_$2', $classBaseName);
@@ -54,7 +54,7 @@ abstract class Profession extends ScalarEnum
      * @param PropertyCode $propertyCode
      * @return bool
      */
-    public function isPrimaryProperty(PropertyCode $propertyCode)
+    public function isPrimaryProperty(PropertyCode $propertyCode): bool
     {
         return in_array($propertyCode->getValue(), $this->getPrimaryProperties(), true);
     }
@@ -62,12 +62,12 @@ abstract class Profession extends ScalarEnum
     /**
      * @return array|string[]
      */
-    abstract public function getPrimaryProperties();
+    abstract public function getPrimaryProperties(): array;
 
     /**
      * @return ProfessionCode
      */
-    public function getCode()
+    public function getCode(): ProfessionCode
     {
         return ProfessionCode::getIt($this->getValue());
     }

@@ -8,7 +8,7 @@ class Wizard extends Profession
     /**
      * @return Wizard|Profession
      */
-    public static function getIt()
+    public static function getIt():Wizard
     {
         return parent::getIt();
     }
@@ -16,7 +16,7 @@ class Wizard extends Profession
     /**
      * @return array|string[]
      */
-    public function getPrimaryProperties()
+    public function getPrimaryProperties(): array
     {
         return [PropertyCode::WILL, PropertyCode::INTELLIGENCE];
     }
