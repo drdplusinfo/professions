@@ -14,7 +14,7 @@ abstract class Profession extends ScalarEnum
     /**
      * @param ProfessionCode $professionCode
      * @return Profession
-     * @throws Exceptions\ProfessionNotFound
+     * @throws \DrdPlus\Professions\Exceptions\ProfessionNotFound
      */
     public static function getItByCode(ProfessionCode $professionCode): Profession
     {
@@ -56,7 +56,7 @@ abstract class Profession extends ScalarEnum
      */
     public function isPrimaryProperty(PropertyCode $propertyCode): bool
     {
-        return in_array($propertyCode->getValue(), $this->getPrimaryProperties(), true);
+        return \in_array($propertyCode->getValue(), $this->getPrimaryProperties(), true);
     }
 
     /**
