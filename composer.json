@@ -1,7 +1,7 @@
 {
   "name": "drdplus/professions",
   "license": "MIT",
-  "type": "project",
+  "type": "library",
   "description": "Professions of Drd+",
   "autoload": {
     "psr-4": {
@@ -20,7 +20,5 @@
     "mockery/mockery": "~1.0",
     "granam/exceptions-hierarchy": "~4.0",
     "doctrineum/entity": "^2.1"
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+  }
 }
