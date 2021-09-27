@@ -7,7 +7,7 @@ use DrdPlus\Codes\Properties\PropertyCode;
 use DrdPlus\Professions\Fighter;
 use DrdPlus\Professions\Profession;
 use DrdPlus\Tables\Professions\ProfessionPrimaryPropertiesTable;
-use Granam\Tests\Tools\TestWithMockery;
+use Granam\TestWithMockery\TestWithMockery;
 
 abstract class ProfessionTest extends TestWithMockery
 {
@@ -115,9 +115,7 @@ abstract class ProfessionTest extends TestWithMockery
         $professionPrimaryPropertiesTable = new ProfessionPrimaryPropertiesTable();
 
         return array_map(
-            function (PropertyCode $propertyCode) {
-                return $propertyCode->getValue();
-            },
+            fn(PropertyCode $propertyCode) => $propertyCode->getValue(),
             $professionPrimaryPropertiesTable->getPrimaryPropertiesOf(ProfessionCode::getIt($this->getProfessionName()))
         );
     }

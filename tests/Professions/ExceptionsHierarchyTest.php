@@ -13,7 +13,7 @@ class ExceptionsHierarchyTest extends AbstractExceptionsHierarchyTest
 
     protected function getRootNamespace(): string
     {
-        return \str_replace('\Tests', '', __NAMESPACE__);
+        return str_replace('\Tests', '', __NAMESPACE__);
     }
 
 }
